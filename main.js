@@ -1,16 +1,16 @@
-
-$('form').on('submit', function (e) {
-    e.preventDefault()
-
-    const valor = $('#tarefa').val();
-    let novaLinha = $('<li class="selecionavel"></li>')
-
-    $(novaLinha).html(valor)
-    $(novaLinha).appendTo("ul")
-
-})
+$('form').on('submit', function(e) {
+    e.preventDefault();
 
 
-$('.selecionavel').click(function () {
-    $('.selecionavel').css('text-decoration', 'line-through')
+const inputTarefa=$('#tarefa').val();
+const novaTarefa =$(`<li class="texto-tarefa">${inputTarefa}</li>`);
+
+
+    $(novaTarefa).appendTo('ul');
+    $('#tarefa').val('');
+    $(novaTarefa).click(function(){
+        $(novaTarefa).css("text-decoration", "line-through");
+    })
+
+
 })
